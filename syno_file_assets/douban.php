@@ -181,6 +181,7 @@ function GetMovieInfoDouban($movie_data, $data)
         $fn = 'get' . ucfirst($key) . 's';
         foreach ($movie_data->{$fn}() as $item) {
             if (!in_array($item['name'], $data[$key])) {
+                $item['name']= explode(" ", $item['name']);
                 array_push($data[$key], $item['name']);
             }
         }
